@@ -77,11 +77,11 @@ class Adult implements Runnable {
 	
 	public void run() {
 		try {
-			swimmingPool.enterPool(swimmingPool.Person.ADULT);
+			swimmingPool.enterPool(this);
 			Thread.sleep(600000);
-			swimmingPool.leavePool(swimmingPool.Person.ADULT);
+			swimmingPool.leavePool(this);
 		} catch (InterruptedException e) {
-			swimmingPool.leavePool(swimmingPool.Person.ADULT);
+			swimmingPool.leavePool(this);
 		}
 	}
 }
