@@ -12,7 +12,7 @@ class Bridge {
 	}
 	
 	synchronized void enterLaneA(Car car) throws InterruptedException {
-		while (currentWeightA + currentWeightB + car.getWeight >= maximumWeight || Math.abs(currentWeightA - currentWeightB + car.getWeight) >= maximumDifference) {
+		while (currentWeightA + currentWeightB + car.getWeight() >= maximumWeight || Math.abs(currentWeightA - currentWeightB + car.getWeight()) >= maximumDifference) {
 			wait();
 		}
 		currentWeightA += newWeight;
@@ -20,10 +20,10 @@ class Bridge {
 	}
 	
 	synchronized void enterLaneB(Car car) throws InterruptedException {
-		while (currentWeightA + currentWeightB + car.getWeight >= maximumWeight || Math.abs(currentWeightA - currentWeightB + car.getWeight) >= maximumDifference) {
+		while (currentWeightA + currentWeightB + car.getWeight() >= maximumWeight || Math.abs(currentWeightA - currentWeightB + car.getWeight()) >= maximumDifference) {
 			wait();
 		}
-		currentWeightB += car.getWeight;
+		currentWeightB += car.getWeight();
 		notifyAll();
 	}
 	
@@ -31,7 +31,7 @@ class Bridge {
 		while (Math.abs(currentWeightA - currentWeightB) >= maximumDifference) {
 			wait();
 		}
-		currentWeightA -= car.getWeight;
+		currentWeightA -= car.getWeight();
 		notifyAll();
 	}
 	
@@ -39,7 +39,7 @@ class Bridge {
 		while (Math.abs(currentWeightA - currentWeightB) >= maximumDifference) {
 			wait();
 		}
-		currentWeightB -= car.getWeight;
+		currentWeightB -= car.getWeight();
 		notifyAll();
 	}
 }
