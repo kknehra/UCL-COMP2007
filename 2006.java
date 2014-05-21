@@ -11,7 +11,6 @@ class SwimmingPool {
 	private int childCapacity;
 	private int childCount;
 	
-	
 	private ArrayList <Adult> adults = new ArrayList <Adult>(); // 3d
 	private ArrayList <Child> children = new ArrayList <Children>(); // 3d
 	

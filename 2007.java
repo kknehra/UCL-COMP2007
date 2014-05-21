@@ -45,7 +45,6 @@ class Student implements Runnable {
 	
 	public void run() {
 		try {
-			
 			double randomTime = Math.random() * 2 * 60000;
 			Thread.sleep(randomTime);
 			if (!computerRoom.enterRoom()) {
